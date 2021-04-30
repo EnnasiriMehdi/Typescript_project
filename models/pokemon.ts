@@ -13,18 +13,14 @@ export class Pokemon{
         this.attack = attack;
     }
 
-    test(): boolean {
-        return true;
-    }
-
     attackPokemon( b : Pokemon): void{
-        if (b.getHp() > this.attack) {
-            b.setHp(b.getHp() - this.getAttack());
+        if (b.hp > this.attack) {
+            b.hp = (b.hp - this.attack);
         }else{
-            b.setHp(0);
+            b.hp = 0;
         }
-        console.log(this.name + "attaque -> "+ b.getName() + "\n");
-        console.log(b.getName() + " perd " + this.attack + "hp \n");
+        console.log(this.name + "attaque -> "+ b.name + "\n");
+        console.log(b.name + " perd " + this.attack + "hp \n");
         return;
     }
 
@@ -33,21 +29,5 @@ export class Pokemon{
             return true;
         }
         return false;
-    }
-    getAttack(): number {
-        return this.attack;
-    }
-
-    getName(): string {
-        return this.name;
-    }
-
-    getHp(): number {
-        return this.hp;
-    }
-
-    setHp(value: number) {
-        this.hp = value;
-        return;
     }
 }

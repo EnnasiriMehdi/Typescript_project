@@ -9,9 +9,6 @@ var Pokemon = /** @class */ (function () {
         this.speed = speed;
         this.attack = attack;
     }
-    Pokemon.prototype.test = function () {
-        return true;
-    };
     Pokemon.prototype.attackPokemon = function (b) {
         if (b.getHp() > this.attack) {
             b.setHp(b.getHp() - this.getAttack());
@@ -41,6 +38,9 @@ var Pokemon = /** @class */ (function () {
     Pokemon.prototype.setHp = function (value) {
         this.hp = value;
         return;
+    };
+    Pokemon.prototype.getSpeed = function () {
+        return this.speed;
     };
     return Pokemon;
 }());

@@ -15,23 +15,26 @@ export function whoAttackFirst(a : Pokemon, b :Pokemon): Pokemon {
     }
 }
 
-export function round(firstAttacker: Pokemon, secondAttacker: Pokemon) : void{
-    firstAttacker.attackPokemon(secondAttacker);
-    if(!secondAttacker.isAlive()){
-        console.log(secondAttacker.name + " est mort !");
-    }
-    secondAttacker.attackPokemon(firstAttacker);
-    if(!firstAttacker.isAlive()){
-        console.log(firstAttacker.name + " est mort !");
-    }
+export async function round(firstAttacker: Pokemon, secondAttacker: Pokemon) : Promise<boolean>{
+    throw setTimeout(() => {
+        firstAttacker.attackPokemon(secondAttacker);
+        if (!secondAttacker.isAlive()) {
+            console.log(secondAttacker.name + " est mort !");
+        }
+        secondAttacker.attackPokemon(firstAttacker);
+        if (!firstAttacker.isAlive()) {
+            console.log(firstAttacker.name + " est mort !");
+        }
+    }, 500);
+    return true;
 }
 
-export function battle(a: Pokemon, b : Pokemon){
-    while (a.getHp() > 0 && b.getHp() > 0 ){
+export async function battle(a:  Pokemon, b : Pokemon) : Promise<Pokemon>{
+    while (a.hp > 0 && b.hp > 0 ){
         if( whoAttackFirst(a, b) === a){
-            round(a,b);
+            await round(a,b);
         }else {
-            round(b,a);
+            await round(b,a);
         }
     }
     if (!a.isAlive()){
