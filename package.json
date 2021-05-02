@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node models/pokemon.ts",
-    "test": "jest"
+    "start": "node src/models/pokemon.ts",
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",

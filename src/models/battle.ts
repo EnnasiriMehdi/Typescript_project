@@ -1,5 +1,6 @@
 import {Pokemon} from "./pokemon";
 
+
 export class Battle{
     pokemon1 : Pokemon;
     pokemon2 : Pokemon;

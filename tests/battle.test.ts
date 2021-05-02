@@ -1,5 +1,5 @@
-import {Pokemon} from "../models/pokemon";
-import {Battle} from "../models/battle";
+import {Pokemon} from "../src/models/pokemon";
+import {Battle} from "../src/models/battle";
 
 let carapuce: Pokemon;
 let salameche: Pokemon;
@@ -13,10 +13,17 @@ describe('test battle', () => {
         battle = new Battle(carapuce,salameche);
     });
 
-    it('who attack first', () => {
+    it('who attack first 2nd poke', () => {
         salameche.speed = 80;
         expect(salameche.speed).toBe(80);
         expect(battle.whoAttackFirst()).toBe(salameche);
+        salameche.speed = 75;
+    })
+
+    it('who attack first 1st poke', () => {
+        carapuce.speed = 80;
+        expect(carapuce.speed).toBe(80);
+        expect(battle.whoAttackFirst()).toBe(carapuce);
     })
 
     describe('who attack first rand 1 ', () => {
@@ -63,7 +70,9 @@ describe('test battle', () => {
     })
 
     it('salamèche fight carapuce to death ', () => {
+
         battle.fight().then(Pokemon => expect(Pokemon).toBe(carapuce) );
+        expect(battle.roundCpt).toBe(1);
     })
 
 
