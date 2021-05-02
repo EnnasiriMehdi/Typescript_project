@@ -8,7 +8,7 @@ export class Battle{
     constructor(pokemon1 : Pokemon, pokemon2 : Pokemon) {
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
-        this.roundCpt = 0;
+        this.roundCpt = 1;
     }
 
     whoAttackFirst(): Pokemon {
@@ -43,6 +43,7 @@ export class Battle{
                     clearInterval(inter);
                 } else {
                     this.round(this.pokemon2,this.pokemon1);
+                    this.roundCpt += 1;
                 }
             }, 500);
         });
