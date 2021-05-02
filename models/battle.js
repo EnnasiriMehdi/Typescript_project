@@ -27,7 +27,7 @@ var Battle = /** @class */ (function () {
         }
     };
     Battle.prototype.fight = function () {
-        while (this.pokemon1.getHp() > 0 && this.pokemon2.getHp() > 0) {
+        while (this.pokemon1.hp > 0 && this.pokemon2.hp > 0) {
             if (this.whoAttackFirst() === this.pokemon1) {
                 this.round(this.pokemon1, this.pokemon2);
             }

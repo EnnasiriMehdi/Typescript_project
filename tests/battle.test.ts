@@ -13,12 +13,24 @@ describe('test battle', () => {
         expect(battle.whoAttackFirst()).toBe(salameche);
     })
 
-    describe('who attack first rand', () => {
+    describe('who attack first rand 1 ', () => {
         beforeEach(() => {
             jest.spyOn(global.Math, 'random').mockReturnValue(1);
         });
         it('should return a random pokemon when their speed is equal', () => {
             expect(battle.whoAttackFirst()).toBe(salameche);
+        });
+        afterEach(() => {
+            jest.spyOn(global.Math, 'random').mockRestore();
+        });
+    })
+
+    describe('who attack first rand 0 ', () => {
+        beforeEach(() => {
+            jest.spyOn(global.Math, 'random').mockReturnValue(0);
+        });
+        it('should return a random pokemon when their speed is equal', () => {
+            expect(battle.whoAttackFirst()).toBe(carapuce);
         });
         afterEach(() => {
             jest.spyOn(global.Math, 'random').mockRestore();

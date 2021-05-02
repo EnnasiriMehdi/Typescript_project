@@ -10,14 +10,14 @@ var Pokemon = /** @class */ (function () {
         this.attack = attack;
     }
     Pokemon.prototype.attackPokemon = function (b) {
-        if (b.getHp() > this.attack) {
-            b.setHp(b.getHp() - this.getAttack());
+        if (b.hp > this.attack) {
+            b.hp = (b.hp - this.attack);
         }
         else {
-            b.setHp(0);
+            b.hp = 0;
         }
-        console.log(this.name + "attaque -> " + b.getName() + "\n");
-        console.log(b.getName() + " perd " + this.attack + "hp \n");
+        console.log(this.name + "attaque -> " + b.name + "\n");
+        console.log(b.name + " perd " + this.attack + "hp \n");
         return;
     };
     Pokemon.prototype.isAlive = function () {
@@ -25,22 +25,6 @@ var Pokemon = /** @class */ (function () {
             return true;
         }
         return false;
-    };
-    Pokemon.prototype.getAttack = function () {
-        return this.attack;
-    };
-    Pokemon.prototype.getName = function () {
-        return this.name;
-    };
-    Pokemon.prototype.getHp = function () {
-        return this.hp;
-    };
-    Pokemon.prototype.setHp = function (value) {
-        this.hp = value;
-        return;
-    };
-    Pokemon.prototype.getSpeed = function () {
-        return this.speed;
     };
     return Pokemon;
 }());
