@@ -1,11 +1,17 @@
 import {Pokemon} from "../models/pokemon";
 import {Battle} from "../models/battle";
 
-const carapuce = new Pokemon("carapuce", "eau", 150, 75,140);
-const salameche = new Pokemon("salameche", "feu", 140, 75,15);
-const battle = new Battle(carapuce,salameche);
+var carapuce: Pokemon;
+var salameche: Pokemon;
+var battle : Battle;
 
 describe('test battle', () => {
+
+    beforeEach(() => {
+        carapuce = new Pokemon("carapuce", "eau", 150, 75,140);
+        salameche = new Pokemon("salameche", "feu", 140, 75,15);
+        battle = new Battle(carapuce,salameche);
+    });
 
     it('who attack first', () => {
         salameche.speed = 80;
