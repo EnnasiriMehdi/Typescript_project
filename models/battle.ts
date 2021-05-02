@@ -32,17 +32,19 @@ export class Battle{
             }
     }
 
-    fight() : Pokemon{
-        while (this.pokemon1.hp > 0 && this.pokemon2.hp > 0 ){
-            if( this.whoAttackFirst() === this.pokemon1){
-                this.round(this.pokemon1,this.pokemon2);
-            }else {
-                this.round(this.pokemon2,this.pokemon1);
-            }
-        }
-        if (!this.pokemon1.isAlive()){
-            return this.pokemon2;
-        }
-        return this.pokemon1;
+    async fight() : Promise<Pokemon>{
+        return await new Promise(resolve => {
+            const inter = setInterval(() => {
+                if (this.pokemon1.hp <= 0 && this.pokemon2.hp <= 0 ) {
+                    if (!this.pokemon1.isAlive()){
+                        return resolve(this.pokemon2);
+                    }
+                    return resolve(this.pokemon1);
+                    clearInterval(inter);
+                } else {
+                    this.round(this.pokemon2,this.pokemon1);
+                }
+            }, 500);
+        });
     }
 }

@@ -1,9 +1,9 @@
 import {Pokemon} from "../models/pokemon";
 import {Battle} from "../models/battle";
 
-var carapuce: Pokemon;
-var salameche: Pokemon;
-var battle : Battle;
+let carapuce: Pokemon;
+let salameche: Pokemon;
+let battle : Battle;
 
 describe('test battle', () => {
 
@@ -63,7 +63,7 @@ describe('test battle', () => {
     })
 
     it('salamèche fight carapuce to death ', () => {
-        expect(battle.fight()).toBe(carapuce);
+        battle.fight().then(Pokemon => expect(Pokemon).toBe(carapuce) );
     })
 
 
